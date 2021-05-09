@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">HabitPalette</string>
+    <string name="home_recycler_current_habit_name">습관 목록</string>
+    <string name="home_recycler_past_habit_name">지난 습관들</string>
 </resources>

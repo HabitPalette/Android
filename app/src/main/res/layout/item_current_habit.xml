@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="100dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/text_habit_title"
+        android:layout_width="47dp"
+        android:layout_height="20dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_habit_period"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/light_gray"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        app:layout_constraintTop_toBottomOf="@id/text_habit_title"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <!--차트랑 내부에 글씨-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
