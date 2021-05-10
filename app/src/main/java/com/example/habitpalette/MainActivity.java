@@ -26,9 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
         mCurrentHabitList = new ArrayList<>();
 
-        CurrentHabitRecyclerItem data1 = new CurrentHabitRecyclerItem("코딩",2, (float)5);
-        CurrentHabitRecyclerItem data2 = new CurrentHabitRecyclerItem("코딩",10, (float)2.4);
-        CurrentHabitRecyclerItem data3 = new CurrentHabitRecyclerItem("코딩",32, (float)3.6);
+        CurrentHabitRecyclerItem data1 = new CurrentHabitRecyclerItem("코딩",2, (float)5, 0xffa9cfce);
+        CurrentHabitRecyclerItem data2 = new CurrentHabitRecyclerItem("코딩",10, (float)2.4, 0xffad599e);
+        CurrentHabitRecyclerItem data3 = new CurrentHabitRecyclerItem("코딩",32, (float)3.6, 0xff5484ff);
 
         mCurrentHabitList.add(data1);
         mCurrentHabitList.add(data2);

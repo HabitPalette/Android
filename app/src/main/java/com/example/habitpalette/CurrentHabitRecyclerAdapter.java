@@ -38,7 +38,7 @@ public class CurrentHabitRecyclerAdapter extends RecyclerView.Adapter<CurrentHab
         CurrentHabitRecyclerItem item = mData.get(position);
         String period= Integer.toString(item.getHabitPeriod());
         int score = (int) item.getHabitScore()*20;
-        Log.d("score",holder.habitScore.toString());
+        Log.d("color",String.valueOf(item.getHabitColor()));
         holder.habitPeriod.setText("습관 "+period+"일째");
         holder.habitTitle.setText(item.getHabitTitle());
         holder.habitScore.setPercent(score);
