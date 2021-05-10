@@ -2,6 +2,7 @@ package com.example.habitpalette;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,8 +37,12 @@ public class CurrentHabitRecyclerAdapter extends RecyclerView.Adapter<CurrentHab
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         CurrentHabitRecyclerItem item = mData.get(position);
         String period= Integer.toString(item.getHabitPeriod());
+        int score = (int) item.getHabitScore()*20;
+        Log.d("score",holder.habitScore.toString());
         holder.habitPeriod.setText("습관 "+period+"일째");
         holder.habitTitle.setText(item.getHabitTitle());
+        holder.habitScore.setPercent(score);
+        holder.habitScore.setText(Float.toString(item.getHabitScore()));
     }
 
     @Override
@@ -48,12 +53,14 @@ public class CurrentHabitRecyclerAdapter extends RecyclerView.Adapter<CurrentHab
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView habitTitle;
         TextView habitPeriod;
+        HabitScoreProgressView habitScore;
 
         ViewHolder(View itemView) {
             super(itemView);
 
             habitTitle = itemView.findViewById(R.id.text_habit_title);
             habitPeriod = itemView.findViewById(R.id.text_habit_period);
+            habitScore = itemView.findViewById(R.id.progress_view_current_habit_score);
         }
     }
 }

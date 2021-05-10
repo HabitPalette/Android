@@ -25,7 +25,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_current_habit"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="200dp"
         android:layout_marginBottom="20dp"
         android:orientation="horizontal"/>
 
@@ -50,7 +50,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_past_habit"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="400dp"
         android:layout_marginBottom="20dp" />
 
 </LinearLayout>
