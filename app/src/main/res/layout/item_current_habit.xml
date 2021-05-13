@@ -1,42 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="180dp"
-    android:layout_height="200dp">
+    android:id="@+id/layout_habit_item"
+    android:layout_width="200dp"
+    android:layout_height="210dp"
+    android:layout_marginLeft="15dp"
+    android:orientation="vertical"
+    android:background="@drawable/shadow_habit_box">
 
-    <TextView
-        android:id="@+id/text_habit_title"
-        android:layout_width="47dp"
-        android:layout_height="20dp"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/text_habit_period"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/light_gray"
-        android:textSize="14sp"
-        android:textStyle="normal"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_habit_title" />
+        <TextView
+            android:id="@+id/text_habit_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="20dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-    <com.example.habitpalette.HabitScoreProgressView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/progress_view_current_habit_score"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        app:bgColor="@color/white"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_habit_period"
-        app:strokeWidth="13dp"
-        app:fgColorStart="@color/purple_200"/>
+        <TextView
+            android:id="@+id/text_habit_period"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/light_gray"
+            android:textSize="14sp"
+            android:textStyle="normal" />
 
+        <com.example.habitpalette.HabitScoreProgressView
+            android:id="@+id/progress_view_current_habit_score"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center_horizontal"
+            app:bgColor="@color/white"
+            app:fgColorStart="@color/purple_200"
+            app:strokeWidth="13dp" />
+    </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
