@@ -7,18 +7,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="30dp"
+        android:paddingLeft="20dp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="5dp"
             android:text="@string/home_recycler_current_habit_name"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
@@ -26,20 +26,19 @@
         android:id="@+id/recycler_current_habit"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="50dp"
         android:orientation="horizontal"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:layout_marginBottom="15dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="5dp"
             android:text="@string/home_recycler_past_habit_name"
             android:textColor="@color/black"
             android:textSize="20sp"
@@ -50,7 +49,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_past_habit"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_marginBottom="20dp" />
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"/>
 
 </LinearLayout>
