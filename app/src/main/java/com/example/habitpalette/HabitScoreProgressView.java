@@ -77,7 +77,9 @@ public class HabitScoreProgressView extends View {
         mPaint.setTextSize(50);
         mPaint.setColor(mFgColorEnd);
         mPaint.setTextAlign(Paint.Align.CENTER);
-        canvas.drawText(mText, 155, 170, mPaint);
+        if(mText!=null){
+            canvas.drawText(mText, 155, 170, mPaint);
+        }
 
         mPaint.setStrokeWidth(mStrokeWidth);
         mPaint.setStyle(Paint.Style.STROKE);
@@ -86,7 +88,7 @@ public class HabitScoreProgressView extends View {
         canvas.drawArc(mOval, 0, 360, false, mPaint);
 
         mPaint.setShader(mShader);
-        canvas.drawArc(mOval, -50, mPercent * 3.6f, false, mPaint);
+        canvas.drawArc(mOval, -70, mPercent * 3.6f, false, mPaint);
 
     }
 
@@ -155,9 +157,11 @@ public class HabitScoreProgressView extends View {
 
     public void setFgColorStart(int mFgColorStart) {
         this.mFgColorStart = mFgColorStart;
-        mShader = new LinearGradient(mOval.left, mOval.top,
-                mOval.left, mOval.bottom, mFgColorStart, mFgColorEnd, Shader.TileMode.MIRROR);
-        refreshTheLayout();
+        if (mOval != null) {
+            mShader = new LinearGradient(mOval.left, mOval.top,
+                    mOval.left, mOval.bottom, mFgColorStart, mFgColorEnd, Shader.TileMode.MIRROR);
+            refreshTheLayout();
+        }
     }
 
     public int getFgColorEnd() {
@@ -166,9 +170,11 @@ public class HabitScoreProgressView extends View {
 
     public void setFgColorEnd(int mFgColorEnd) {
         this.mFgColorEnd = mFgColorEnd;
-        mShader = new LinearGradient(mOval.left, mOval.top,
-                mOval.left, mOval.bottom, mFgColorStart, mFgColorEnd, Shader.TileMode.MIRROR);
-        refreshTheLayout();
+        if (mOval != null) {
+            mShader = new LinearGradient(mOval.left, mOval.top,
+                    mOval.left, mOval.bottom, mFgColorStart, mFgColorEnd, Shader.TileMode.MIRROR);
+            refreshTheLayout();
+        }
     }
 
     public void animateIndeterminate() {
