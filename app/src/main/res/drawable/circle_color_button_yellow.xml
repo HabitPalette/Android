@@ -8,7 +8,7 @@
                 <shape android:shape="oval">
                     <stroke android:width="2dp" android:color="@color/checked_gray" />
                     <solid android:color="@color/white" />
-                    <size android:width="45dp" android:height="45dp" />
+                    <size android:width="@dimen/color_habit_normal_circle" android:height="@dimen/color_habit_normal_circle" />
                 </shape>
             </item>
             <item>
@@ -16,7 +16,7 @@
                     <stroke android:color="@android:color/transparent"
                         android:width="10dp"/>
                     <solid android:color="@color/yellow" />
-                    <size android:width="35dp" android:height="35dp" />
+                    <size android:width="@dimen/color_habit_checked_inner_circle" android:height="@dimen/color_habit_checked_inner_circle" />
                 </shape>
             </item>
         </layer-list>
@@ -25,10 +25,9 @@
     <item android:state_checked="false">
 
         <shape android:shape="oval">
-
+            <stroke android:width="4dp" android:color="@android:color/transparent" />
             <solid android:color="@color/yellow" />
-
-            <size android:width="35dp" android:height="35dp" />
+            <size android:width="@dimen/color_habit_normal_circle" android:height="@dimen/color_habit_normal_circle" />
         </shape>
     </item>
 

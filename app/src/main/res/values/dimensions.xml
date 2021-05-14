@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="color_habit_normal_circle">50dp</dimen>
+    <dimen name="color_habit_checked_inner_circle">40dp</dimen>
+</resources>
