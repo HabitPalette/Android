@@ -5,7 +5,7 @@
     android:id="@+id/layout_habit_item"
     android:layout_width="match_parent"
     android:layout_height="150dp"
-    android:layout_marginBottom="20dp"
+    android:layout_marginBottom="10dp"
     android:orientation="vertical"
     android:background="@drawable/shadow_habit_box_long">
 
