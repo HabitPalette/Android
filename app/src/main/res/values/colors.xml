@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="light_gray">#A3A3A3</color>
     <color name="white_blue">#f9fbfd</color>
+    <color name="white_gray">#F2F2F2</color>
 
     <!--습관 색상-->
     <color name="pink">#f76da9</color>

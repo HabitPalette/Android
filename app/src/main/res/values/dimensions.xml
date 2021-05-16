@@ -2,4 +2,6 @@
 <resources>
     <dimen name="color_habit_normal_circle">50dp</dimen>
     <dimen name="color_habit_checked_inner_circle">40dp</dimen>
+    <dimen name="thumb_size">64dp</dimen>
+    <dimen name="thumb_text_size">16sp</dimen>
 </resources>
