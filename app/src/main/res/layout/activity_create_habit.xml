@@ -57,7 +57,7 @@
             android:id="@+id/layout_input_habit_name"
             android:layout_width="match_parent"
             android:layout_height="58dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="18dp"
             android:orientation="horizontal">
 
             <TextView
@@ -101,7 +101,7 @@
             android:id="@+id/layout_input_habit_start_date"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="31dp"
             android:orientation="horizontal">
 
             <TextView
@@ -137,7 +137,7 @@
             android:id="@+id/layout_input_habit_period"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="34dp"
             android:orientation="horizontal">
 
             <TextView
@@ -152,7 +152,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:paddingLeft="40dp">
+                android:paddingLeft="40dp"
+                android:gravity="center">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -185,13 +186,13 @@
             android:id="@+id/layout_input_habit_color"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="60dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="45dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start|center_vertical"
+                android:layout_gravity="start"
                 android:text="@string/create_new_habit_color"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
