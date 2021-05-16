@@ -6,6 +6,7 @@ import android.text.Editable;
 import android.text.InputType;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -26,14 +27,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CreateHabitActivity extends AppCompatActivity {
-    private EditText mHabitName;
-    private EditText mHabitStartDate;
-    private RadioGroup mHabitColorGroup1;
-    private RadioGroup mHabitColorGroup2;
+    private EditText mEditTextName;
+    private EditText mEditTextStartDate;
+    private RadioGroup mRadioGroupColor1;
+    private RadioGroup mRadioGroupColor2;
+    private Button mButtonCreate;
     private int mSelectedColor;
     private Date mStartDate;
-    private ArrayList<String> mHabitPeriodType;
-    private CreateHabitPeriodSeekBar mHabitPeriod;
+    private ArrayList<String> mArrayListPeriodType;
+    private CreateHabitPeriodSeekBar mSeekBarPeriod;
     private Date mCurrentDate;
 
     Calendar myCalendar = Calendar.getInstance();
@@ -54,26 +56,28 @@ public class CreateHabitActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_habit);
 
-        mHabitStartDate = (EditText) findViewById(R.id.edit_text_habit_start_date);
-        mHabitStartDate.setOnClickListener(v -> new DatePickerDialog(CreateHabitActivity.this, myDatePicker, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show());
-        mHabitStartDate.setInputType(InputType.TYPE_NULL);
+        mEditTextStartDate = (EditText) findViewById(R.id.edit_text_habit_start_date);
+        mRadioGroupColor1 = (RadioGroup) findViewById(R.id.radio_group_habit_color_row1);
+        mSeekBarPeriod = (CreateHabitPeriodSeekBar) findViewById(R.id.seek_bar_habit_period);
 
 
-        mHabitColorGroup1 = (RadioGroup) findViewById(R.id.radio_group_habit_color_row1);
-        mHabitColorGroup1.clearCheck();
-        mHabitColorGroup1.setOnCheckedChangeListener(colorSelected1);
-        mHabitColorGroup2 = (RadioGroup) findViewById(R.id.radio_group_habit_color_row2);
-        mHabitColorGroup2.clearCheck();
-        mHabitColorGroup2.setOnCheckedChangeListener(colorSelected2);
+        mEditTextStartDate.setOnClickListener(v -> new DatePickerDialog(CreateHabitActivity.this, myDatePicker, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show());
+        mEditTextStartDate.setInputType(InputType.TYPE_NULL);
 
-        mHabitPeriod = (CreateHabitPeriodSeekBar) findViewById(R.id.seek_bar_habit_period);
-        mHabitPeriod.setRangeCount(4);
-        mHabitPeriodType = new ArrayList<>();
-        mHabitPeriodType.add("10일");
-        mHabitPeriodType.add("30일");
-        mHabitPeriodType.add("50일");
-        mHabitPeriodType.add("100일");
-        mHabitPeriod.setStrings(mHabitPeriodType);
+
+        mRadioGroupColor1.clearCheck();
+        mRadioGroupColor1.setOnCheckedChangeListener(colorSelected1);
+        mRadioGroupColor2 = (RadioGroup) findViewById(R.id.radio_group_habit_color_row2);
+        mRadioGroupColor2.clearCheck();
+        mRadioGroupColor2.setOnCheckedChangeListener(colorSelected2);
+
+        mSeekBarPeriod.setRangeCount(4);
+        mArrayListPeriodType = new ArrayList<>();
+        mArrayListPeriodType.add("10일");
+        mArrayListPeriodType.add("30일");
+        mArrayListPeriodType.add("50일");
+        mArrayListPeriodType.add("100일");
+        mSeekBarPeriod.setStrings(mArrayListPeriodType);
     }
 
     private void updateLabel() throws ParseException {
@@ -85,11 +89,11 @@ public class CreateHabitActivity extends AppCompatActivity {
         int compare = mCurrentDate.compareTo(mStartDate);
 
         if(compare<=0){
-            mHabitStartDate.setText(sdf.format(myCalendar.getTime()));
+            mEditTextStartDate.setText(sdf.format(myCalendar.getTime()));
         }
         else{
             Toast.makeText(CreateHabitActivity.this, "날짜 다시 선택", Toast.LENGTH_SHORT).show();
-            mHabitStartDate.setText("");
+            mEditTextStartDate.setText("");
         }
     }
 
@@ -97,9 +101,9 @@ public class CreateHabitActivity extends AppCompatActivity {
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
             if (checkedId != -1) {
-                mHabitColorGroup2.setOnCheckedChangeListener(null);
-                mHabitColorGroup2.clearCheck();
-                mHabitColorGroup2.setOnCheckedChangeListener(colorSelected2);
+                mRadioGroupColor2.setOnCheckedChangeListener(null);
+                mRadioGroupColor2.clearCheck();
+                mRadioGroupColor2.setOnCheckedChangeListener(colorSelected2);
             }
             if (checkedId == R.id.button_habit_color_pink) {
                 mSelectedColor = R.color.pink;
@@ -119,9 +123,9 @@ public class CreateHabitActivity extends AppCompatActivity {
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
             if (checkedId != -1) {
-                mHabitColorGroup1.setOnCheckedChangeListener(null);
-                mHabitColorGroup1.clearCheck();
-                mHabitColorGroup1.setOnCheckedChangeListener(colorSelected1);
+                mRadioGroupColor1.setOnCheckedChangeListener(null);
+                mRadioGroupColor1.clearCheck();
+                mRadioGroupColor1.setOnCheckedChangeListener(colorSelected1);
             }
             if (checkedId == R.id.button_habit_color_light_green_blue) {
                 mSelectedColor = R.color.light_green_blue;
