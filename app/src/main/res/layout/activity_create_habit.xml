@@ -210,7 +210,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:checkedButton="@id/button_habit_color_pink">
 
                     <RadioButton
                         android:id="@+id/button_habit_color_pink"
@@ -333,7 +334,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/button_save"
             android:text="@string/button_save"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:enabled="false"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
