@@ -12,5 +12,7 @@
     <string name="create_new_habit_name_maxLength">최대 40자</string>
     <string name="create_new_habit_start_date_hint">YYYY.MM.DD</string>
     <string name="button_save">저장</string>
+    <string name="update_cur_habit">습관 수정하기</string>
+    <string name="calendar_edit">수정하기</string>
 
 </resources>
