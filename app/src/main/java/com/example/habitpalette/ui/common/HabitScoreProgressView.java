@@ -1,4 +1,4 @@
-package com.example.habitpalette;
+package com.example.habitpalette.ui.common;
 
 import android.animation.ObjectAnimator;
 import android.animation.TimeInterpolator;
@@ -17,6 +17,8 @@ import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
 import androidx.annotation.Nullable;
+
+import com.example.habitpalette.R;
 
 public class HabitScoreProgressView extends View {
 

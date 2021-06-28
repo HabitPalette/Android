@@ -1,7 +1,6 @@
-package com.example.habitpalette;
+package com.example.habitpalette.ui.home;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.habitpalette.ui.common.HabitScoreProgressView;
+import com.example.habitpalette.R;
 
 import java.util.ArrayList;
 

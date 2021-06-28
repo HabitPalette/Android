@@ -33,7 +33,7 @@
             android:textSize="14sp"
             android:textStyle="normal" />
 
-        <com.example.habitpalette.HabitScoreProgressView
+        <com.example.habitpalette.ui.common.HabitScoreProgressView
             android:id="@+id/progress_view_current_habit_score"
             android:layout_width="120dp"
             android:layout_height="120dp"

@@ -1,4 +1,4 @@
-package com.example.habitpalette;
+package com.example.habitpalette.ui.home;
 
 import java.util.Date;
 

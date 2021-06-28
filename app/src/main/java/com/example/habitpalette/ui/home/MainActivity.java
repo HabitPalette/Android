@@ -1,4 +1,4 @@
-package com.example.habitpalette;
+package com.example.habitpalette.ui.home;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -6,10 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Adapter;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
+
+import com.example.habitpalette.ui.habit.CreateHabitActivity;
+import com.example.habitpalette.R;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -41,14 +41,9 @@ public class MainActivity extends AppCompatActivity {
         mCurrentHabitRecyclerView.setLayoutManager(mCurrentHabitLinearLayoutManager);
 
         mCurrentHabitList = new ArrayList<>();
-
-        CurrentHabitRecyclerItem data1 = new CurrentHabitRecyclerItem("코딩",2, (float)5, 0xffad599e);
-        CurrentHabitRecyclerItem data2 = new CurrentHabitRecyclerItem("코딩",10, (float)2.4, 0xffffd6e8);
-        CurrentHabitRecyclerItem data3 = new CurrentHabitRecyclerItem("코딩",32, (float)3.6, 0xff5484ff);
-
-        mCurrentHabitList.add(data1);
-        mCurrentHabitList.add(data2);
-        mCurrentHabitList.add(data3);
+        Intent intent = getIntent();
+        //CurrentHabitRecyclerItem habitItem = (CurrentHabitRecyclerItem) intent.getSerializableExtra("habitItem");
+        //mCurrentHabitList.add(habitItem);
 
         mCurrentHabitAdapter = new CurrentHabitRecyclerAdapter(mCurrentHabitList);
         mCurrentHabitRecyclerView.setAdapter(mCurrentHabitAdapter);

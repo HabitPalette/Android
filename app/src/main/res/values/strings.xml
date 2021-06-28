@@ -2,7 +2,9 @@
     <string name="app_name">HabitPalette</string>
     <string name="home_recycler_current_habit_name">습관 목록</string>
     <string name="home_recycler_past_habit_name">지난 습관들</string>
+
     <string name="current_habit_score">약속점수</string>
+
     <string name="create_new_habit">새로운 습관 만들기</string>
     <string name="create_new_habit_name">습관명</string>
     <string name="create_new_habit_start_date">시작일</string>
@@ -11,8 +13,17 @@
     <string name="create_new_habit_name_hint">습관 이름을 입력하세요</string>
     <string name="create_new_habit_name_maxLength">최대 40자</string>
     <string name="create_new_habit_start_date_hint">YYYY.MM.DD</string>
-    <string name="button_save">저장</string>
-    <string name="update_cur_habit">습관 수정하기</string>
-    <string name="calendar_edit">수정하기</string>
 
+    <string name="button_save">저장</string>
+
+    <string name="update_cur_habit">습관 수정하기</string>
+
+    <string name="calendar_edit">수정하기</string>
+    <string name="monday">월</string>
+    <string name="tuesday">화</string>
+    <string name="wednesday">수</string>
+    <string name="thursday">목</string>
+    <string name="friday">금</string>
+    <string name="saturday">토</string>
+    <string name="sunday">일</string>
 </resources>

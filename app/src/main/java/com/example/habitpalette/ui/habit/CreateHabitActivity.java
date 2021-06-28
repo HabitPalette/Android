@@ -1,24 +1,25 @@
-package com.example.habitpalette;
+package com.example.habitpalette.ui.habit;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.RadioButton;
+import android.widget.ImageButton;
 import android.widget.RadioGroup;
-import android.widget.SeekBar;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.habitpalette.ui.common.CreateHabitPeriodSeekBar;
+import com.example.habitpalette.R;
+import com.example.habitpalette.ui.home.CurrentHabitRecyclerItem;
+import com.example.habitpalette.ui.home.MainActivity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -26,10 +27,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class CreateHabitActivity extends AppCompatActivity {
+    private ImageButton mImageButtonGoHome;
     private EditText mEditTextName;
     private EditText mEditTextStartDate;
     private RadioGroup mRadioGroupColor1;
@@ -62,12 +62,20 @@ public class CreateHabitActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_habit);
 
+        mImageButtonGoHome = (ImageButton) findViewById(R.id.button_back_to_home);
         mEditTextName = (EditText) findViewById(R.id.edit_text_habit_name);
         mEditTextStartDate = (EditText) findViewById(R.id.edit_text_habit_start_date);
         mSeekBarPeriod = (CreateHabitPeriodSeekBar) findViewById(R.id.seek_bar_habit_period);
         mRadioGroupColor1 = (RadioGroup) findViewById(R.id.radio_group_habit_color_row1);
         mRadioGroupColor2 = (RadioGroup) findViewById(R.id.radio_group_habit_color_row2);
         mButtonCreate = (Button) findViewById(R.id.button_habit_create);
+
+        mImageButtonGoHome.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            intent.setFlags(intent.FLAG_ACTIVITY_SINGLE_TOP);
+            intent.addFlags(intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        });
 
         mEditTextName.addTextChangedListener(textWatcher);
 
@@ -94,10 +102,10 @@ public class CreateHabitActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if(mButtonCreate.isEnabled()){
+        if (mButtonCreate.isEnabled()) {
             mButtonCreate.setTextColor(getResources().getColor(R.color.white));
             mButtonCreate.requestLayout();
-        }else{
+        } else {
             mButtonCreate.setTextColor(getResources().getColor(R.color.black));
             mButtonCreate.requestLayout();
         }
@@ -110,8 +118,9 @@ public class CreateHabitActivity extends AppCompatActivity {
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             String name = mEditTextName.getText().toString().trim();
             String startDate = mEditTextStartDate.getText().toString().trim();
-            mButtonCreate.setEnabled(!(name.length()==0)&& !(startDate.length()==0));
+            mButtonCreate.setEnabled(!(name.length() == 0) && !(startDate.length() == 0));
         }
+
         public void afterTextChanged(Editable s) {
         }
     };
@@ -135,14 +144,14 @@ public class CreateHabitActivity extends AppCompatActivity {
     View.OnClickListener createHabit = v -> {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd", Locale.KOREA);
 
-        mHabitName=mEditTextName.getText().toString();
+        mHabitName = mEditTextName.getText().toString();
         try {
-            mHabitStartDate=sdf.parse(sdf.format(mHabitStartDate.getTime()));
+            mHabitStartDate = sdf.parse(sdf.format(mHabitStartDate.getTime()));
         } catch (ParseException e) {
             e.printStackTrace();
         }
         mHabitPeriod = mSeekBarPeriod.getProgress();
-        Toast.makeText(CreateHabitActivity.this, mHabitName+mHabitStartDate+" "+Integer.toString(mHabitColor)+" "+Integer.toString(mHabitPeriod), Toast.LENGTH_SHORT).show();
+        Toast.makeText(CreateHabitActivity.this, mHabitName + mHabitStartDate + " " + Integer.toString(mHabitColor) + " " + Integer.toString(mHabitPeriod), Toast.LENGTH_SHORT).show();
     };
 
     RadioGroup.OnCheckedChangeListener colorSelected1 = new RadioGroup.OnCheckedChangeListener() {

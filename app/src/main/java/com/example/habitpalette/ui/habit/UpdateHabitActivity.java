@@ -1,10 +1,7 @@
-package com.example.habitpalette;
+package com.example.habitpalette.ui.habit;
 
-import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
@@ -17,12 +14,9 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
+import com.example.habitpalette.R;
+
 import java.util.Date;
-import java.util.Locale;
 
 public class UpdateHabitActivity extends AppCompatActivity {
     private ImageButton mImageButtonGoCalendar;

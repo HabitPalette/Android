@@ -56,7 +56,7 @@
 
     </LinearLayout>
 
-        <com.example.habitpalette.HabitScoreProgressView
+        <com.example.habitpalette.ui.common.HabitScoreProgressView
             android:id="@+id/progress_view_past_habit_score"
             android:layout_width="0dp"
             android:layout_height="match_parent"

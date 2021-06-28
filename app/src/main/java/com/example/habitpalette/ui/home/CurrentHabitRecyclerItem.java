@@ -1,14 +1,17 @@
-package com.example.habitpalette;
+package com.example.habitpalette.ui.home;
+
+import java.io.Serializable;
+import java.util.Date;
 
 public class CurrentHabitRecyclerItem {
     private String mHabitTitle;
-    private int mHabitPeriod;
+    private Date mHabitStartDate;
     private float mHabitScore;
     private int mHabitColor;
 
-    public CurrentHabitRecyclerItem(String mHabitTitle, int mHabitPeriod, float mHabitScore, int mHabitColor) {
+    public CurrentHabitRecyclerItem(String mHabitTitle, Date mHabitStartDate, float mHabitScore, int mHabitColor) {
         this.mHabitTitle = mHabitTitle;
-        this.mHabitPeriod = mHabitPeriod;
+        this.mHabitStartDate = mHabitStartDate;
         this.mHabitScore = mHabitScore;
         this.mHabitColor = mHabitColor;
     }
@@ -17,8 +20,8 @@ public class CurrentHabitRecyclerItem {
         mHabitTitle = title;
     }
 
-    public void setHabitPeriod(int period) {
-        mHabitPeriod = period;
+    public void setHabitPeriod(Date startDate) {
+        mHabitStartDate = startDate;
     }
 
     public void setHabitScore(float score) {
@@ -33,8 +36,8 @@ public class CurrentHabitRecyclerItem {
         return this.mHabitTitle;
     }
 
-    public int getHabitPeriod() {
-        return this.mHabitPeriod;
+    public Date getHabitPeriod() {
+        return this.mHabitStartDate;
     }
 
     public float getHabitScore() {

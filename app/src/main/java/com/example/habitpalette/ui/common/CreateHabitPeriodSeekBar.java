@@ -1,4 +1,4 @@
-package com.example.habitpalette;
+package com.example.habitpalette.ui.common;
 
 import android.content.Context;
 import android.graphics.Canvas;

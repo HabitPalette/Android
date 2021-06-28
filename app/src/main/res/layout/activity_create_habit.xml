@@ -17,12 +17,12 @@
 
         <ImageButton
             android:id="@+id/button_back_to_home"
-            android:layout_width="5dp"
-            android:layout_height="10dp"
+            android:layout_width="8dp"
+            android:layout_height="16dp"
             android:layout_gravity="start|center_vertical"
             android:layout_marginLeft="20dp"
             android:backgroundTint="@android:color/transparent"
-            android:src="@drawable/ic_icon_arrow_left" />
+            android:src="@drawable/ic_icon_arrow_left"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -162,7 +162,7 @@
                     android:clipChildren="false"
                     android:orientation="horizontal">
 
-                    <com.example.habitpalette.CreateHabitPeriodSeekBar
+                    <com.example.habitpalette.ui.common.CreateHabitPeriodSeekBar
                         android:id="@+id/seek_bar_habit_period"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
