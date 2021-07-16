@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
 
+import com.example.habitpalette.ui.calendar.HabitCalendarActivity;
 import com.example.habitpalette.ui.habit.CreateHabitActivity;
 import com.example.habitpalette.R;
 
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         mCreateHabitButton = (ImageButton) findViewById(R.id.button_create_habit);
 
         mCreateHabitButton.setOnClickListener(view -> {
-            Intent intent = new Intent(getApplicationContext(), CreateHabitActivity.class);
+            Intent intent = new Intent(getApplicationContext(), HabitCalendarActivity.class);
             startActivity(intent);
         });
 
@@ -41,9 +42,6 @@ public class MainActivity extends AppCompatActivity {
         mCurrentHabitRecyclerView.setLayoutManager(mCurrentHabitLinearLayoutManager);
 
         mCurrentHabitList = new ArrayList<>();
-        Intent intent = getIntent();
-        //CurrentHabitRecyclerItem habitItem = (CurrentHabitRecyclerItem) intent.getSerializableExtra("habitItem");
-        //mCurrentHabitList.add(habitItem);
 
         mCurrentHabitAdapter = new CurrentHabitRecyclerAdapter(mCurrentHabitList);
         mCurrentHabitRecyclerView.setAdapter(mCurrentHabitAdapter);
@@ -80,5 +78,6 @@ public class MainActivity extends AppCompatActivity {
 
         mPastHabitAdapter = new PastHabitRecyclerAdapter(mPastHabitList);
         mPastHabitRecyclerView.setAdapter(mPastHabitAdapter);
+
     }
 }
