@@ -1,322 +1,302 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/layout_update_habit_title"
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:backgroundTint="@color/white_blue"
-        android:gravity="center_horizontal"
+        android:background="#f9fbfd"
         android:orientation="horizontal"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintBottom_toTopOf="@+id/etName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageButton
-            android:id="@+id/button_back_to_Calendar"
-            android:layout_width="8dp"
-            android:layout_height="16dp"
-            android:layout_gravity="start|center_vertical"
-            android:layout_marginLeft="20dp"
+            android:id="@+id/btnBack"
+            android:layout_width="30dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
             android:backgroundTint="@android:color/transparent"
-            android:src="@drawable/ic_icon_arrow_left" />
+            android:src="@drawable/ic_icon_arrow_left"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/tvNewHabit"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/update_cur_habit"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
-
-        </LinearLayout>
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="20dp"
+            android:gravity="center_vertical|center"
+            android:text="@string/update_cur_habit"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/layout_update_habit_item"
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="45dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center_vertical"
+        android:text="@string/create_new_habit_name"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/etName"
+        app:layout_constraintEnd_toStartOf="@+id/etName"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/etName"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="36dp"
+        android:gravity="center_vertical"
+        android:hint="@string/create_new_habit_name_hint"
+        android:maxLength="40"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textColorHint="#cccccc"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvStartDateContent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvName" />
+
+    <TextView
+        android:id="@+id/tvMaxLen"
+        android:layout_width="45dp"
+        android:layout_height="12dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center_vertical"
+        android:text="@string/create_new_habit_name_maxLength"
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etName" />
+
+    <TextView
+        android:id="@+id/tvStartDate"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="44dp"
+        android:gravity="center_vertical"
+        android:text="@string/create_new_habit_start_date"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvStartDateContent"
+        app:layout_constraintEnd_toStartOf="@+id/tvStartDateContent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvStartDateContent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvStartDateContent"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_gravity="start|center_vertical"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="40dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvPeriodContent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvStartDate" />
+
+    <TextView
+        android:id="@+id/tvPeriod"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center_vertical"
+        android:text="@string/create_new_habit_period"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPeriodContent"
+        app:layout_constraintEnd_toStartOf="@+id/tvPeriodContent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvPeriodContent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvPeriodContent"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_gravity="start|center_vertical"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="36dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/rgColorTop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvPeriod" />
+
+    <TextView
+        android:id="@+id/tvColor"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center_vertical"
+        android:text="@string/create_new_habit_color"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/rgColorTop"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPeriod" />
+
+    <RadioGroup
+        android:id="@+id/rgColorTop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="12dp"
+        android:checkedButton="@id/button_habit_color_pink"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/rgColorBottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvColor">
+
+        <RadioButton
+            android:id="@+id/rbPink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="12dp"
+            android:backgroundTint="@android:color/transparent"
+            android:button="@drawable/circle_color_button_pink" />
+
+        <RadioButton
+            android:id="@+id/rbRed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="12dp"
+            android:backgroundTint="@android:color/transparent"
+            android:button="@drawable/circle_color_button_red" />
+
+        <RadioButton
+            android:id="@+id/rbOrange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="12dp"
+            android:backgroundTint="@android:color/transparent"
+            android:button="@drawable/circle_color_button_orange" />
+
+        <RadioButton
+            android:id="@+id/rbYellow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="12dp"
+            android:backgroundTint="@android:color/transparent"
+            android:button="@drawable/circle_color_button_yellow" />
+
+        <RadioButton
+            android:id="@+id/rbGreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="@android:color/transparent"
+            android:button="@drawable/circle_color_button_green" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rgColorBottom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="60dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/btnCreate"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RadioButton
+            android:id="@+id/rbLightGreenBlue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="12dp"
+            android:backgroundTint="@android:color/transparent"
+            android:button="@drawable/circle_color_button_light_green_blue" />
+
+        <RadioButton
+            android:id="@+id/rbBlue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="12dp"
+            android:backgroundTint="@android:color/transparent"
+            android:button="@drawable/circle_color_button_blue" />
+
+        <RadioButton
+            android:id="@+id/rbLightBluePurple"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginEnd="12dp"
+            android:backgroundTint="@android:color/transparent"
+            android:button="@drawable/circle_color_button_light_blue_purple" />
+
+        <RadioButton
+            android:id="@+id/rbPurple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="12dp"
+            android:backgroundTint="@android:color/transparent"
+            android:button="@drawable/circle_color_button_purple" />
+
+        <RadioButton
+            android:id="@+id/rbGray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="@android:color/transparent"
+            android:button="@drawable/circle_color_button_gray" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnCreate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_update_habit_title">
-
-        <LinearLayout
-            android:id="@+id/layout_input_habit_name"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:layout_marginBottom="18dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="45dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start|center_vertical"
-                android:text="@string/create_new_habit_name"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:paddingLeft="40dp">
-
-                <EditText
-                    android:id="@+id/edit_text_habit_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:maxLength="40"
-                    android:singleLine="true"
-                    android:textColor="@color/black"
-                    android:textColorHint="#cccccc"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="45dp"
-                    android:layout_height="12dp"
-                    android:layout_gravity="end"
-                    android:text="@string/create_new_habit_name_maxLength"
-                    android:textColor="@color/black"
-                    android:textSize="10sp" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout_input_habit_start_date"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginBottom="31dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="45dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start|center_vertical"
-                android:text="@string/create_new_habit_start_date"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:paddingLeft="40dp">
-
-                <TextView
-                    android:id="@+id/text_view_habit_start_date"
-                    android:layout_width="45dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start|center_vertical"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout_input_habit_period"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginBottom="34dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="45dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start|center_vertical"
-                android:text="@string/create_new_habit_period"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingLeft="40dp">
-
-                <TextView
-                    android:id="@+id/text_view_habit_period"
-                    android:layout_width="45dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start|center_vertical"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout_input_habit_color"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="60dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="45dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:text="@string/create_new_habit_color"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="40dp">
-
-                <RadioGroup
-                    android:id="@+id/radio_group_habit_color_row1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/button_habit_color_pink"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="8dp"
-                        android:backgroundTint="@android:color/transparent"
-                        android:button="@drawable/circle_color_button_pink" />
-
-                    <RadioButton
-                        android:id="@+id/button_habit_color_red"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="8dp"
-                        android:backgroundTint="@android:color/transparent"
-                        android:button="@drawable/circle_color_button_red" />
-
-                    <RadioButton
-                        android:id="@+id/button_habit_color_orange"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="8dp"
-                        android:backgroundTint="@android:color/transparent"
-                        android:button="@drawable/circle_color_button_orange" />
-
-                    <RadioButton
-                        android:id="@+id/button_habit_color_yellow"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="8dp"
-                        android:backgroundTint="@android:color/transparent"
-                        android:button="@drawable/circle_color_button_yellow" />
-
-                    <RadioButton
-                        android:id="@+id/button_habit_color_green"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:backgroundTint="@android:color/transparent"
-                        android:button="@drawable/circle_color_button_green" />
-                </RadioGroup>
-
-                <RadioGroup
-                    android:id="@+id/radio_group_habit_color_row2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/button_habit_color_light_green_blue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="8dp"
-                        android:backgroundTint="@android:color/transparent"
-                        android:button="@drawable/circle_color_button_light_green_blue" />
-
-                    <RadioButton
-                        android:id="@+id/button_habit_color_blue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="8dp"
-                        android:backgroundTint="@android:color/transparent"
-                        android:button="@drawable/circle_color_button_blue" />
-
-                    <RadioButton
-                        android:id="@+id/button_habit_color_light_blue_purple"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="8dp"
-                        android:backgroundTint="@android:color/transparent"
-                        android:button="@drawable/circle_color_button_light_blue_purple" />
-
-                    <RadioButton
-                        android:id="@+id/button_habit_color_purple"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="8dp"
-                        android:backgroundTint="@android:color/transparent"
-                        android:button="@drawable/circle_color_button_purple" />
-
-                    <RadioButton
-                        android:id="@+id/button_habit_color_gray"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:backgroundTint="@android:color/transparent"
-                        android:button="@drawable/circle_color_button_gray" />
-
-                </RadioGroup>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:orientation="horizontal"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_update_habit_item">
-
-        <Button
-            android:id="@+id/button_habit_update"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_save"
-            android:enabled="false"
-            android:text="@string/button_save"
-            android:textColor="@color/white" />
-    </LinearLayout>
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="190dp"
+        android:background="@drawable/button_save"
+        android:enabled="false"
+        android:text="@string/button_save"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
