@@ -19,6 +19,7 @@
     <string name="update_cur_habit">습관 수정하기</string>
 
     <string name="calendar_edit">수정하기</string>
+    <string name="calendar_score">이 습관의 약속점수: </string>
     <string name="monday">월</string>
     <string name="tuesday">화</string>
     <string name="wednesday">수</string>
@@ -26,4 +27,10 @@
     <string name="friday">금</string>
     <string name="saturday">토</string>
     <string name="sunday">일</string>
+    <string name="calendar_graph1">며칠 통계</string>
+    <string name="calendar_graph2">주차별 통계</string>
+    <string name="calendar_graph3">요일별 통계</string>
+
+    <string name="button_delete">습관 삭제</string>
+
 </resources>
