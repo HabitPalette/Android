@@ -174,7 +174,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="12dp"
-        android:checkedButton="@id/button_habit_color_pink"
+        android:checkedButton="@id/rbPink"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/rgColorBottom"
