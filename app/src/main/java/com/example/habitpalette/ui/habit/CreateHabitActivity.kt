@@ -18,22 +18,17 @@ import com.example.habitpalette.databinding.ActivityCreateHabitBinding
 import com.example.habitpalette.ui.home.MainActivity
 import java.text.ParseException
 import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.util.*
 
 
 class CreateHabitActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityCreateHabitBinding
 
-    private var mHabitName: String? = null
-    private var mHabitStartDate: Date? = null
-    private var mHabitPeriod = 0
-    private var mHabitColor = 0
-    private var mArrayListPeriodType: ArrayList<String>? = null
-    @RequiresApi(Build.VERSION_CODES.O)
-    private val mCurrentDate = LocalDateTime.now()
+    private lateinit var binding: ActivityCreateHabitBinding
     private val myCalendar: Calendar = Calendar.getInstance()
 
+    @RequiresApi(Build.VERSION_CODES.O)
     var myDatePicker =
         OnDateSetListener { view: DatePicker?, year: Int, month: Int, dayOfMonth: Int ->
             myCalendar[Calendar.YEAR] = year
@@ -48,10 +43,12 @@ class CreateHabitActivity : AppCompatActivity() {
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         // 1. View Binding 설정
         binding = ActivityCreateHabitBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // 2. btnBack intent 설정
         binding.btnBack.setOnClickListener { view: View? ->
             val intent = Intent(applicationContext, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
@@ -59,8 +56,10 @@ class CreateHabitActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // 3. etName에 textChangedListener 추가
         binding.etName.addTextChangedListener(textWatcher)
 
+        // 4. etStartDate에 DatePickerDialog 추가
         binding.etStartDate.setOnClickListener { v: View? ->
             DatePickerDialog(
                 this@CreateHabitActivity,
@@ -73,19 +72,12 @@ class CreateHabitActivity : AppCompatActivity() {
         binding.etStartDate.inputType = InputType.TYPE_NULL
         binding.etStartDate.addTextChangedListener(textWatcher)
 
-        mHabitColor = R.color.pink
-        binding.rgColorTop.setOnCheckedChangeListener(colorSelected1)
-        binding.rgColorTop.clearCheck()
-
-//        binding.rgColorBottom.setOnCheckedChangeListener(colorSelected2)
+        // 5. sbPeriod에 날짜 list 추가
         binding.sbPeriod.setRangeCount(4)
-        mArrayListPeriodType = ArrayList()
-        mArrayListPeriodType!!.add("10일")
-        mArrayListPeriodType!!.add("30일")
-        mArrayListPeriodType!!.add("50일")
-        mArrayListPeriodType!!.add("100일")
-        binding.sbPeriod.setStrings(mArrayListPeriodType)
-        binding.btnCreate.setOnClickListener(createHabit)
+        binding.sbPeriod.setStrings(arrayListOf("10일", "30일", "50일", "100일"))
+
+        // 6. btnCreate에 setOnClickListener 추가
+
     }
 
     override fun onResume() {
@@ -94,7 +86,7 @@ class CreateHabitActivity : AppCompatActivity() {
             binding.btnCreate.setTextColor(ContextCompat.getColor(this@CreateHabitActivity, R.color.white))
             binding.btnCreate.requestLayout()
         } else {
-            binding.btnCreate.setTextColor(ContextCompat.getColor(this@CreateHabitActivity, R.color.black))
+            binding.btnCreate.setTextColor(ContextCompat.getColor(this@CreateHabitActivity, R.color.gray))
             binding.btnCreate.requestLayout()
         }
     }
@@ -115,8 +107,8 @@ class CreateHabitActivity : AppCompatActivity() {
     @Throws(ParseException::class)
     private fun updateLabel() {
         val sdf = SimpleDateFormat("yyyy.MM.dd", Locale.KOREA)
-        mHabitStartDate = sdf.parse(sdf.format(myCalendar.time))
-        val compare = mCurrentDate.compareTo(mHabitStartDate)
+        var mHabitStartDate = sdf.parse(sdf.format(myCalendar.time))
+        val compare = Date().compareTo(mHabitStartDate)
         if (compare <= 0) {
             binding.etStartDate.setText(sdf.format(myCalendar.time))
         } else {
@@ -125,34 +117,4 @@ class CreateHabitActivity : AppCompatActivity() {
         }
     }
 
-    var createHabit = View.OnClickListener { v: View? ->
-        val sdf = SimpleDateFormat("yyyy.MM.dd", Locale.KOREA)
-        mHabitName = binding.etName.text.toString()
-        try {
-            mHabitStartDate = sdf.parse(sdf.format(mHabitStartDate!!.time))
-        } catch (e: ParseException) {
-            e.printStackTrace()
-        }
-        mHabitPeriod = binding.sbPeriod.progress
-        Toast.makeText(
-            this@CreateHabitActivity,
-            mHabitName + mHabitStartDate + " " + Integer.toString(mHabitColor) + " " + Integer.toString(
-                mHabitPeriod
-            ),
-            Toast.LENGTH_SHORT
-        ).show()
-    }
-    var colorSelected1 = RadioGroup.OnCheckedChangeListener { group, checkedId ->
-        if (checkedId == R.id.button_habit_color_pink) {
-            mHabitColor = R.color.pink
-        } else if (checkedId == R.id.button_habit_color_red) {
-            mHabitColor = R.color.red
-        } else if (checkedId == R.id.button_habit_color_orange) {
-            mHabitColor = R.color.orange
-        } else if (checkedId == R.id.button_habit_color_yellow) {
-            mHabitColor = R.color.yellow
-        } else if (checkedId == R.id.button_habit_color_green) {
-            mHabitColor = R.color.green
-        }
-    }
 }

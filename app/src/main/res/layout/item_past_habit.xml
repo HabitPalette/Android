@@ -2,7 +2,7 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/layout_habit_item"
+    android:id="@+id/layoutPastItem"
     android:layout_width="match_parent"
     android:layout_height="150dp"
     android:layout_marginBottom="10dp"
@@ -26,7 +26,7 @@
             android:orientation="vertical">
 
         <TextView
-            android:id="@+id/text_habit_title"
+            android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
@@ -36,7 +36,7 @@
             android:layout_marginBottom="15dp"/>
 
         <TextView
-            android:id="@+id/text_habit_score"
+            android:id="@+id/tvScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
@@ -46,7 +46,7 @@
             android:layout_marginBottom="2dp" />
 
             <TextView
-                android:id="@+id/text_habit_period"
+                android:id="@+id/tvPeriod"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
@@ -57,7 +57,7 @@
     </LinearLayout>
 
         <com.example.habitpalette.ui.common.HabitScoreProgressView
-            android:id="@+id/progress_view_past_habit_score"
+            android:id="@+id/pvPastScore"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
