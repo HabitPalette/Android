@@ -1,5 +1,6 @@
 package com.example.habitpalette.ui.common
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
@@ -12,7 +13,7 @@ import androidx.annotation.AttrRes
 import com.example.habitpalette.R
 import kotlin.jvm.Synchronized
 
-class CreateHabitPeriodSeekBar constructor(
+class CreateHabitPeriodSeekBar @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = R.attr.seekBarStyle
@@ -33,6 +34,7 @@ class CreateHabitPeriodSeekBar constructor(
 
     private fun dp2px(dp: Float): Int  = (context.resources.displayMetrics.density * dp + 0.5f).toInt()
 
+    @SuppressLint("DrawAllocation")
     @Synchronized
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)

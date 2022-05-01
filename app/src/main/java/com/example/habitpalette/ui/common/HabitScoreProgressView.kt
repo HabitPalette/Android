@@ -11,7 +11,8 @@ import android.util.AttributeSet
 import android.view.View
 import com.example.habitpalette.R
 
-class HabitScoreProgressView(private val mContext: Context, attrs: AttributeSet?) : View(
+class HabitScoreProgressView @JvmOverloads constructor(
+    private val mContext: Context, attrs: AttributeSet?) : View(
     mContext, attrs
 ) {
     private var mPercent = 75f
