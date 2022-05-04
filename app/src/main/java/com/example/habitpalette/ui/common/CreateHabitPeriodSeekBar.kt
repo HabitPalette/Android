@@ -19,6 +19,7 @@ class CreateHabitPeriodSeekBar @JvmOverloads constructor(
     @AttrRes defStyleAttr: Int = R.attr.seekBarStyle
 ) : AppCompatSeekBar(context, attrs, defStyleAttr) {
 
+    private var mPreviousTextBounds = 0f
     private var mRangeCount = 0
     private var mPaint = Paint()
     private var mProgressStrings: ArrayList<String>? = null
@@ -43,18 +44,25 @@ class CreateHabitPeriodSeekBar @JvmOverloads constructor(
             return
         }
 
-        for (i in 0 until mRangeCount) {
+        for (i in 1..mRangeCount) {
             val bounds = Rect()
-            val curText = mProgressStrings?.get(i)
+            val curText = mProgressStrings?.get(i-1)
             if (curText != null) {
                 val textLength = curText.length
                 mPaint.getTextBounds(curText, 0, textLength, bounds)
-                val interval = (width - paddingLeft - paddingRight) * (i.toFloat() / max)
+                var textX = 0f
+                when(i){
+                    1-> textX = dp2px(45f).toFloat()
+                    2-> textX = dp2px(45f).toFloat() + mPreviousTextBounds+2*(dp2px(16f).toFloat())
+                    3-> textX = dp2px(45f).toFloat()+ 2*(mPreviousTextBounds+2*(dp2px(16f).toFloat()))
+                    4-> textX = dp2px(45f).toFloat() + 3*(mPreviousTextBounds+2*(dp2px(16.5f).toFloat()))
+                }
                 val textY =
                     (height - paddingBottom - paddingTop) / 2.toFloat() + bounds.height() / 2.toFloat() - dp2px(
                         2f
                     )
-                canvas.drawText(curText, interval, textY, mPaint)
+                mPreviousTextBounds = bounds.width().toFloat()
+                canvas.drawText(curText, textX, textY, mPaint)
             }
         }
     }

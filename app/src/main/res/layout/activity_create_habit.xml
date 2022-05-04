@@ -33,6 +33,7 @@
             android:layout_height="48dp"
             android:layout_gravity="center_vertical"
             android:layout_marginEnd="20dp"
+            android:background="@color/white_blue"
             android:gravity="center_vertical|center"
             android:text="@string/create_new_habit"
             android:textColor="@color/black"
@@ -125,7 +126,7 @@
         android:layout_width="45dp"
         android:layout_height="30dp"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="16dp"
         android:gravity="center_vertical"
         android:text="@string/create_new_habit_period"
         android:textColor="@color/black"
@@ -141,18 +142,16 @@
         android:id="@+id/sbPeriod"
         android:layout_width="0dp"
         android:layout_height="32dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="3dp"
         android:layout_marginBottom="34dp"
-        android:paddingStart="0dp"
-        android:paddingEnd="0dp"
         android:elevation="4dp"
         android:max="3"
+        android:padding="0dp"
         android:progress="0"
-        android:background="@null"
+        android:progressDrawable="@drawable/seek_bar"
         android:splitTrack="false"
-        android:thumbOffset="0dp"
-        android:progressDrawable="@drawable/seek_bar_progress"
         android:thumb="@drawable/seek_bar_thumb"
+        android:thumbOffset="0dp"
         app:layout_constraintBottom_toTopOf="@+id/rgColorTop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -190,7 +189,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginEnd="12dp"
+            android:layout_marginEnd="4dp"
             android:backgroundTint="@android:color/transparent"
             android:button="@drawable/circle_color_button_pink" />
 
@@ -199,7 +198,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginEnd="12dp"
+            android:layout_marginEnd="4dp"
             android:backgroundTint="@android:color/transparent"
             android:button="@drawable/circle_color_button_red" />
 
@@ -208,7 +207,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginEnd="12dp"
+            android:layout_marginEnd="4dp"
             android:backgroundTint="@android:color/transparent"
             android:button="@drawable/circle_color_button_orange" />
 
@@ -217,7 +216,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginEnd="12dp"
+            android:layout_marginEnd="4dp"
             android:backgroundTint="@android:color/transparent"
             android:button="@drawable/circle_color_button_yellow" />
 
@@ -247,7 +246,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginEnd="12dp"
+            android:layout_marginEnd="4dp"
             android:backgroundTint="@android:color/transparent"
             android:button="@drawable/circle_color_button_light_green_blue" />
 
@@ -256,7 +255,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginEnd="12dp"
+            android:layout_marginEnd="4dp"
             android:backgroundTint="@android:color/transparent"
             android:button="@drawable/circle_color_button_blue" />
 
@@ -265,7 +264,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginEnd="12dp"
+            android:layout_marginEnd="4dp"
             android:backgroundTint="@android:color/transparent"
             android:button="@drawable/circle_color_button_light_blue_purple" />
 
@@ -274,7 +273,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginEnd="12dp"
+            android:layout_marginEnd="4dp"
             android:backgroundTint="@android:color/transparent"
             android:button="@drawable/circle_color_button_purple" />
 
@@ -294,7 +293,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="190dp"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/button_save"
         android:enabled="false"
         android:text="@string/button_save"
