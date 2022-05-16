@@ -9,31 +9,31 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#f9fbfd"
+        android:background="@color/white_blue"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/etName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
         <ImageButton
             android:id="@+id/btnBack"
-            android:layout_width="30dp"
-            android:layout_height="32dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_gravity="center_vertical"
-            android:layout_marginStart="20dp"
-            android:backgroundTint="@android:color/transparent"
+            android:background="@color/white_blue"
             android:src="@drawable/ic_icon_arrow_left"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/tvNewHabit"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="48dp"
             android:layout_gravity="center_vertical"
             android:layout_marginEnd="20dp"
+            android:background="@color/white_blue"
             android:gravity="center_vertical|center"
             android:text="@string/update_cur_habit"
             android:textColor="@color/black"
@@ -56,7 +56,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/etName"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/etName"
@@ -91,7 +91,7 @@
     <TextView
         android:id="@+id/tvStartDate"
         android:layout_width="45dp"
-        android:layout_height="30dp"
+        android:layout_height="48dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="44dp"
@@ -102,6 +102,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvStartDateContent"
         app:layout_constraintEnd_toStartOf="@+id/tvStartDateContent"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tvStartDateContent"
         app:layout_constraintVertical_bias="0.0" />
@@ -109,10 +110,10 @@
     <TextView
         android:id="@+id/tvStartDateContent"
         android:layout_width="0dp"
-        android:layout_height="30dp"
+        android:layout_height="48dp"
         android:layout_gravity="start|center_vertical"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="36dp"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/tvPeriodContent"
@@ -133,9 +134,9 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvPeriodContent"
         app:layout_constraintEnd_toStartOf="@+id/tvPeriodContent"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvPeriodContent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/tvPeriodContent" />
 
     <TextView
         android:id="@+id/tvPeriodContent"
@@ -154,7 +155,7 @@
     <TextView
         android:id="@+id/tvColor"
         android:layout_width="45dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="30dp"
@@ -163,7 +164,7 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/rgColorTop"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPeriod" />
 
@@ -178,16 +179,14 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/rgColorBottom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tvColor">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <RadioButton
             android:id="@+id/rbPink"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginEnd="12dp"
+            android:layout_marginEnd="4dp"
             android:backgroundTint="@android:color/transparent"
             android:button="@drawable/circle_color_button_pink" />
 
@@ -196,7 +195,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginEnd="12dp"
+            android:layout_marginEnd="4dp"
             android:backgroundTint="@android:color/transparent"
             android:button="@drawable/circle_color_button_red" />
 
@@ -205,7 +204,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginEnd="12dp"
+            android:layout_marginEnd="4dp"
             android:backgroundTint="@android:color/transparent"
             android:button="@drawable/circle_color_button_orange" />
 
@@ -214,7 +213,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginEnd="12dp"
+            android:layout_marginEnd="4dp"
             android:backgroundTint="@android:color/transparent"
             android:button="@drawable/circle_color_button_yellow" />
 
@@ -244,7 +243,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginEnd="12dp"
+            android:layout_marginEnd="4dp"
             android:backgroundTint="@android:color/transparent"
             android:button="@drawable/circle_color_button_light_green_blue" />
 
@@ -253,16 +252,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginEnd="12dp"
+            android:layout_marginEnd="4dp"
             android:backgroundTint="@android:color/transparent"
             android:button="@drawable/circle_color_button_blue" />
 
         <RadioButton
             android:id="@+id/rbLightBluePurple"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginEnd="12dp"
+            android:layout_marginEnd="4dp"
             android:backgroundTint="@android:color/transparent"
             android:button="@drawable/circle_color_button_light_blue_purple" />
 
@@ -271,7 +270,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginEnd="12dp"
+            android:layout_marginEnd="4dp"
             android:backgroundTint="@android:color/transparent"
             android:button="@drawable/circle_color_button_purple" />
 
@@ -291,7 +290,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="190dp"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/button_save"
         android:enabled="false"
         android:text="@string/button_save"
