@@ -6,7 +6,6 @@
             android:alpha="0.4"
             android:src="@drawable/shadow_long"
             android:gravity="fill">
-
         </bitmap>
     </item>
 

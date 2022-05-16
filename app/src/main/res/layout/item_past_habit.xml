@@ -10,7 +10,7 @@
     android:background="@drawable/shadow_habit_box_long">
 
     <LinearLayout
-        android:layout_width="350dp"
+        android:layout_width="280dp"
         android:layout_height="120dp"
         android:orientation="horizontal"
         android:layout_marginTop="10dp"
@@ -18,10 +18,9 @@
 
         <LinearLayout
             android:layout_width="0dp"
+            android:layout_weight="1.5"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
+            android:paddingLeft="5dp"
             android:paddingTop="20dp"
             android:orientation="vertical">
 
@@ -31,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:layout_marginBottom="15dp"/>
 
@@ -41,23 +40,23 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="normal"
-            android:layout_marginBottom="2dp" />
+            android:layout_marginBottom="2dp"/>
 
-            <TextView
-                android:id="@+id/tvPeriod"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="normal" />
+        <TextView
+            android:id="@+id/tvPeriod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="normal" />
 
     </LinearLayout>
 
         <com.example.habitpalette.ui.common.HabitScoreProgressView
-            android:id="@+id/pvPastScore"
+            android:id="@+id/pvPastProgress"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
@@ -65,10 +64,7 @@
             app:bgColor="@color/white"
             app:fgColorStart="@color/purple_200"
             app:strokeWidth="13dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"/>
+            android:paddingTop="10dp"/>
     </LinearLayout>
 
 </LinearLayout>
