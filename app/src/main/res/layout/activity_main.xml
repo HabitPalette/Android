@@ -10,49 +10,51 @@
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginStart="20dp"
-        android:layout_marginBottom="30dp"
-        android:gravity="center_vertical"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_vertical|center_horizontal"
         android:text="@string/home_recycler_current_habit_name"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/rvCurrentHabit"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.944" />
 
     <ImageButton
         android:id="@+id/btnCreateHabit"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
+        android:layout_height="48dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="@android:color/transparent"
-        android:minHeight="48dp"
         android:src="@drawable/ic_icon_add"
         app:layout_constraintBottom_toTopOf="@+id/rvCurrentHabit"
-        app:layout_constraintEnd_toStartOf="@+id/btnUser" />
+        app:layout_constraintEnd_toStartOf="@+id/btnUser"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.944"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
     <ImageButton
         android:id="@+id/btnUser"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
+        android:layout_height="48dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="@android:color/transparent"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
         android:src="@drawable/ic_icon_user"
         app:layout_constraintBottom_toTopOf="@+id/rvCurrentHabit"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.944"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCurrentHabit"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="200dp"
         android:layout_marginStart="20dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="40dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/tvPastHabitList"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/home_recycler_past_habit_name"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -75,14 +77,14 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPastHabit"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="60dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_goneMarginBottom="80dp" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
