@@ -1,6 +1,8 @@
-package com.example.habitpalette.ui.habit
+package com.example.habitpalette.ui.home
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
 import android.view.LayoutInflater
@@ -8,6 +10,7 @@ import com.example.habitpalette.data.model.Habit
 import com.example.habitpalette.databinding.ItemPastHabitBinding
 
 class PastHabitRecyclerAdapter(
+    val context: Context,
     var pastList: List<Habit>,
     val onClickDetailButton: () -> Unit) :
     RecyclerView.Adapter<PastHabitRecyclerAdapter.PastHabitViewHolder>() {
@@ -18,9 +21,9 @@ class PastHabitRecyclerAdapter(
         @SuppressLint("SetTextI18n")
         fun bind(data: Habit) {
             itemBinding.tvTitle.text = data.title
-            itemBinding.tvScore.text = 3.2f.toString()
-            itemBinding.tvPeriod.text = data.created_date.toString()+"~"+data.end_date.toString()
-            itemBinding.pvPastScore.percent = 50f
+            itemBinding.tvScore.text = data.score.toString()
+            itemBinding.tvPeriod.text = data.start_date.toString()+"~"+data.end_date.toString()
+            itemBinding.pvPastProgress.percent = 50f
 
             // item 클릭해서 CalendarActivity로 intent
             itemBinding.layoutPastItem.setOnClickListener {
@@ -36,9 +39,15 @@ class PastHabitRecyclerAdapter(
 
     override fun onBindViewHolder(holder: PastHabitViewHolder, position: Int) {
         holder.bind(pastList[position])
+        Log.d("PAST ADAPTER", pastList.toString())
     }
 
     override fun getItemCount(): Int {
         return pastList.size
+    }
+
+    fun setData(pastHabitList: List<Habit>){
+        pastList = pastHabitList
+        notifyDataSetChanged()
     }
 }
