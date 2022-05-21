@@ -5,7 +5,6 @@ import android.os.Bundle
 import com.example.habitpalette.R
 import android.text.TextWatcher
 import android.text.Editable
-import android.view.View
 import android.widget.*
 import androidx.core.content.ContextCompat
 import com.example.habitpalette.databinding.ActivityUpdateHabitBinding

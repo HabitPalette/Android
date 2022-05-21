@@ -4,7 +4,6 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.sql.Date
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 

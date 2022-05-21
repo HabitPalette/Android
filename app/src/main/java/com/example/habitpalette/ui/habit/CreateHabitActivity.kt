@@ -14,14 +14,11 @@ import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ViewModelProvider
 import com.example.habitpalette.HabitPaletteApplication
 import com.example.habitpalette.R
 import com.example.habitpalette.data.model.Habit
 import com.example.habitpalette.databinding.ActivityCreateHabitBinding
 import com.example.habitpalette.ui.home.MainActivity
-import com.example.habitpalette.ui.home.MainViewModel
-import com.example.habitpalette.ui.home.MainViewModelFactory
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
