@@ -3,27 +3,27 @@ package com.example.habitpalette.ui.home
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.habitpalette.HabitPaletteApplication
 import com.example.habitpalette.databinding.ActivityMainBinding
 import com.example.habitpalette.ui.habit.CreateHabitActivity
 
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: MainViewModel
+    // 1. View Model 설정
+    private val viewModel: MainViewModel by viewModels{
+        MainViewModelFactory((application as HabitPaletteApplication).repository)
+    }
     private lateinit var binding: ActivityMainBinding
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // 1. View Model 설정
-        viewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application)) .get(
-            MainViewModel::class.java)
 
         // 2. View Binding 설정
         binding = ActivityMainBinding.inflate(layoutInflater)

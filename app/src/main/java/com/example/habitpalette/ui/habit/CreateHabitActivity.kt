@@ -10,14 +10,18 @@ import android.text.InputType
 import android.text.TextWatcher
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import com.example.habitpalette.HabitPaletteApplication
 import com.example.habitpalette.R
 import com.example.habitpalette.data.model.Habit
 import com.example.habitpalette.databinding.ActivityCreateHabitBinding
 import com.example.habitpalette.ui.home.MainActivity
+import com.example.habitpalette.ui.home.MainViewModel
+import com.example.habitpalette.ui.home.MainViewModelFactory
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -25,7 +29,10 @@ import java.util.*
 
 class CreateHabitActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: CreateViewModel
+    // 1. View Model 설정
+    private val viewModel: CreateViewModel by viewModels{
+        CreateViewModelFactory((application as HabitPaletteApplication).repository)
+    }
     private lateinit var binding: ActivityCreateHabitBinding
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -34,10 +41,6 @@ class CreateHabitActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // 1. View Model 설정
-        viewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application)) .get(
-            CreateViewModel::class.java)
 
         // 2. View Binding 설정
         binding = ActivityCreateHabitBinding.inflate(layoutInflater)
@@ -96,8 +99,10 @@ class CreateHabitActivity : AppCompatActivity() {
             val color = ContextCompat.getColor(this, R.color.pink)
             val usersId = 0L
             val score = 0f
+            val startDateText = binding.etStartDate.text.toString()
+            val endDateText = endDate.format(DateTimeFormatter.ofPattern("yyyy.MM.dd"))
 
-            val habit = Habit(null, title, startDate, endDate,duration,isCompleted,color, usersId,score)
+            val habit = Habit(null, title,startDateText, endDateText,duration,isCompleted,color, usersId,score)
             viewModel.createHabitItem(habit)
 
             val intent = Intent(applicationContext, MainActivity::class.java)

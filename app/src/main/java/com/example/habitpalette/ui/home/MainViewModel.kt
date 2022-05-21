@@ -1,6 +1,5 @@
 package com.example.habitpalette.ui.home
 import android.os.Build
-import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.*
 import com.example.habitpalette.data.model.Habit
@@ -15,5 +14,16 @@ class MainViewModel(private val repository: HabitRepository):  ViewModel() {
 
     fun getHabitItem(id:Long) = viewModelScope.launch {
         repository.getHabitItemById(id)
+    }
+}
+
+class MainViewModelFactory(private val repository: HabitRepository):ViewModelProvider.Factory{
+    @RequiresApi(Build.VERSION_CODES.O)
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if(modelClass.isAssignableFrom(MainViewModel::class.java)){
+            @Suppress("UNCHECKED_CAST")
+            return MainViewModel(repository) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel Class")
     }
 }
