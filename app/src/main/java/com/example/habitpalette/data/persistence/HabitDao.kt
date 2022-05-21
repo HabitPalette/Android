@@ -2,6 +2,7 @@ package com.example.habitpalette.data.persistence
 
 import androidx.room.*
 import com.example.habitpalette.data.model.Habit
+import com.example.habitpalette.data.model.HabitHistory
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -10,7 +11,7 @@ interface HabitDao {
     fun getHabitList(is_completed_:Boolean): Flow<List<Habit>>
 
     @Query("SELECT * FROM habits WHERE id=:id_")
-    suspend fun getHabitItem(id_:Long): Habit
+    fun getHabitItem(id_:Long): Flow<Habit>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun createHabit(habit: Habit)
@@ -23,4 +24,8 @@ interface HabitDao {
 
     @Query("DELETE FROM habits")
     suspend fun deleteAllHabits()
+
+    @Query("SELECT * FROM habit_history WHERE habit_id=:habit_id_ AND id=:id_")
+    suspend fun getHabitHistoryItem(habit_id_:Long, id_:Long): Flow<HabitHistory>
+
 }
