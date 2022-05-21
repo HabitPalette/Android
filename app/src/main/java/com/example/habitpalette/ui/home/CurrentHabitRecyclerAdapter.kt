@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.ListAdapter
 import com.example.habitpalette.data.model.Habit
 import com.example.habitpalette.databinding.ItemCurrentHabitBinding
 import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
 
 class CurrentHabitRecyclerAdapter:
@@ -27,7 +28,7 @@ class CurrentHabitRecyclerAdapter:
         @RequiresApi(Build.VERSION_CODES.O)
         fun bind(data: Habit) {
             itemBinding.tvTitle.text = data.title
-            itemBinding.tvPeriod.text = ChronoUnit.DAYS.between(data.start_date, LocalDate.now()).toString()+"일째"
+            itemBinding.tvPeriod.text = ChronoUnit.DAYS.between(LocalDate.parse(data.start_date.replace(".", ""), DateTimeFormatter.BASIC_ISO_DATE), LocalDate.now()).toString()+"일째"
             itemBinding.pvCurrentProgress.percent = 50f
         }
     }

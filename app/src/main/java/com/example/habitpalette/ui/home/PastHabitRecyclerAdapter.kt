@@ -24,7 +24,7 @@ class PastHabitRecyclerAdapter:
             this.habit = data
             itemBinding.tvTitle.text = data.title
             itemBinding.tvScore.text = data.score.toString()
-            itemBinding.tvPeriod.text = data.start_date.toString() + "~" + data.end_date.toString()
+            itemBinding.tvPeriod.text = data.start_date + "~" + data.end_date
             itemBinding.pvPastProgress.percent = 50f
         }
     }
