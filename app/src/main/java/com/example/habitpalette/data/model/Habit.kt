@@ -1,11 +1,13 @@
 package com.example.habitpalette.data.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.time.LocalDate
-import java.util.*
 
+@Entity(tableName = "habits")
 data class Habit (
-    val id : Long,
-    val title: String,
+    @PrimaryKey (autoGenerate = true) val id : Long,
+    var title: String,
     val start_date: LocalDate,
     val end_date: LocalDate,
     val duration: Int,
