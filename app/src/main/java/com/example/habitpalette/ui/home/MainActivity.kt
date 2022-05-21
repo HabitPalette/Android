@@ -37,14 +37,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         // 4. pastAdapter 설정
-        val pastAdapter = PastHabitRecyclerAdapter()
+        val pastAdapter = PastHabitListAdapter()
         pastAdapter.setHasStableIds(true)
         binding.rvPastHabit.adapter = pastAdapter
         binding.rvPastHabit.layoutManager = LinearLayoutManager(this)
         viewModel.pastHabitList.observe(this) { list -> pastAdapter.submitList(list) }
 
         // 5. presentAdapter 설정
-        val presentAdapter = CurrentHabitRecyclerAdapter()
+        val presentAdapter = CurrentHabitListAdapter()
         presentAdapter.setHasStableIds(true)
         binding.rvCurrentHabit.adapter = presentAdapter
         val layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false).apply {
