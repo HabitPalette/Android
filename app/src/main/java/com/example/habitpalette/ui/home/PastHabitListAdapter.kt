@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.ListAdapter
 import com.example.habitpalette.data.model.Habit
 import com.example.habitpalette.databinding.ItemPastHabitBinding
 
-class PastHabitRecyclerAdapter:
-    ListAdapter<Habit, PastHabitRecyclerAdapter.PastHabitViewHolder>(PastHabitComparator()){
+class PastHabitListAdapter:
+    ListAdapter<Habit, PastHabitListAdapter.PastHabitViewHolder>(PastHabitComparator()){
 
     private lateinit var itemBinding: ItemPastHabitBinding
 

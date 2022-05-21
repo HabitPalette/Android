@@ -14,8 +14,8 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
 
-class CurrentHabitRecyclerAdapter:
-    ListAdapter<Habit, CurrentHabitRecyclerAdapter.CurrentHabitViewHolder>(CurrentHabitComparator()){
+class CurrentHabitListAdapter:
+    ListAdapter<Habit, CurrentHabitListAdapter.CurrentHabitViewHolder>(CurrentHabitComparator()){
 
     private lateinit var itemBinding: ItemCurrentHabitBinding
 
