@@ -21,13 +21,10 @@ abstract class AppDatabase : RoomDatabase() {
             super.onCreate(db)
             INSTANCE?.let { database ->
                 scope.launch {
-                    populateDatabase(database.HabitDao())
+                    val habitDao = database.HabitDao()
+                    habitDao.deleteAllHabits()
                 }
             }
-        }
-
-        suspend fun populateDatabase(wordDao: HabitDao) {
-            wordDao.deleteAllHabits()
         }
     }
 
@@ -43,9 +40,6 @@ abstract class AppDatabase : RoomDatabase() {
                     AppDatabase::class.java,
                     "habit_database"
                 )
-                    // Wipes and rebuilds instead of migrating if no Migration object.
-                    // Migration is not part of this codelab.
-                    .fallbackToDestructiveMigration()
                     .addCallback(AppDatabaseCallback(scope))
                     .build()
                 INSTANCE = instance
