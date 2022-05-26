@@ -4,26 +4,13 @@ import androidx.annotation.RequiresApi
 import androidx.lifecycle.*
 import com.example.habitpalette.data.model.Habit
 import com.example.habitpalette.data.repository.HabitRepository
-import kotlinx.coroutines.launch
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
+@HiltViewModel
 @RequiresApi(Build.VERSION_CODES.O)
-class MainViewModel(private val repository: HabitRepository):  ViewModel() {
+class MainViewModel @Inject constructor(habitRepository: HabitRepository):  ViewModel() {
 
-    val pastHabitList: LiveData<List<Habit>> = repository.pastList.asLiveData()
-    val presentHabitList: LiveData<List<Habit>> = repository.presentList.asLiveData()
-
-    fun getHabitItem(id:Long) = viewModelScope.launch {
-        repository.getHabitItemById(id)
-    }
-}
-
-class MainViewModelFactory(private val repository: HabitRepository):ViewModelProvider.Factory{
-    @RequiresApi(Build.VERSION_CODES.O)
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if(modelClass.isAssignableFrom(MainViewModel::class.java)){
-            @Suppress("UNCHECKED_CAST")
-            return MainViewModel(repository) as T
-        }
-        throw IllegalArgumentException("Unknown ViewModel Class")
-    }
+    val pastHabitList: LiveData<List<Habit>> = habitRepository.pastList.asLiveData()
+    val presentHabitList: LiveData<List<Habit>> = habitRepository.presentList.asLiveData()
 }

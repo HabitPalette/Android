@@ -8,17 +8,15 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.habitpalette.HabitPaletteApplication
 import com.example.habitpalette.databinding.ActivityMainBinding
 import com.example.habitpalette.ui.habit.CreateHabitActivity
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     // 1. View Model 설정
-    private val viewModel: MainViewModel by viewModels{
-        MainViewModelFactory((application as HabitPaletteApplication).repository)
-    }
+    private val viewModel: MainViewModel by viewModels()
     private lateinit var binding: ActivityMainBinding
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -37,14 +35,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         // 4. pastAdapter 설정
-        val pastAdapter = PastHabitListAdapter()
+        val pastAdapter = PastHabitListAdapter(this)
         pastAdapter.setHasStableIds(true)
         binding.rvPastHabit.adapter = pastAdapter
         binding.rvPastHabit.layoutManager = LinearLayoutManager(this)
         viewModel.pastHabitList.observe(this) { list -> pastAdapter.submitList(list) }
 
         // 5. presentAdapter 설정
-        val presentAdapter = CurrentHabitListAdapter()
+        val presentAdapter = CurrentHabitListAdapter(this)
         presentAdapter.setHasStableIds(true)
         binding.rvCurrentHabit.adapter = presentAdapter
         val layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false).apply {
