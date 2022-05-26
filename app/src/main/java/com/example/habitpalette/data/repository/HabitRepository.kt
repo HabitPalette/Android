@@ -4,11 +4,14 @@ import androidx.annotation.WorkerThread
 import com.example.habitpalette.data.model.Habit
 import com.example.habitpalette.data.persistence.HabitDao
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class HabitRepository(private val habitDao: HabitDao) {
+@Singleton
+class HabitRepository @Inject constructor(private val habitDao: HabitDao) {
     val pastList: Flow<List<Habit>> = habitDao.getHabitList(true)
     val presentList: Flow<List<Habit>> = habitDao.getHabitList(false)
-    fun getHabitItemById(habitId:Long)=habitDao.getHabitItem(habitId)
+    fun getHabitItem(habitId:Long): Flow<Habit> = habitDao.getHabitItem(habitId)
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
