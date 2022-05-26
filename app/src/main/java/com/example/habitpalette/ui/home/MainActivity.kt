@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         val presentAdapter = CurrentHabitListAdapter(this)
         presentAdapter.setHasStableIds(true)
         binding.rvCurrentHabit.adapter = presentAdapter
-        val layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false).apply {
+        LinearLayoutManager(this, RecyclerView.HORIZONTAL, false).apply {
             binding.rvCurrentHabit.layoutManager = this
         }
         viewModel.presentHabitList.observe(this) { list -> presentAdapter.submitList(list) }

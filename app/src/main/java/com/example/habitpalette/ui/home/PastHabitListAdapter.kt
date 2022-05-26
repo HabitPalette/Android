@@ -1,6 +1,8 @@
 package com.example.habitpalette.ui.home
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
 import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
 import android.view.LayoutInflater
@@ -8,8 +10,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.example.habitpalette.data.model.Habit
 import com.example.habitpalette.databinding.ItemPastHabitBinding
+import com.example.habitpalette.ui.calendar.CalendarActivity
 
-class PastHabitListAdapter:
+class PastHabitListAdapter(val context: Context):
     ListAdapter<Habit, PastHabitListAdapter.PastHabitViewHolder>(PastHabitComparator()){
 
     private lateinit var itemBinding: ItemPastHabitBinding
@@ -26,6 +29,14 @@ class PastHabitListAdapter:
             itemBinding.tvScore.text = data.score.toString()
             itemBinding.tvPeriod.text = data.start_date + "~" + data.end_date
             itemBinding.pvPastProgress.percent = 50f
+
+            // 4. 각 habitItem 클릭시 CalendarActivity로 intent
+            itemBinding.layoutPastItem.setOnClickListener {
+                Intent(context, CalendarActivity::class.java).apply {
+                    putExtra("habitId", data.id)
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                }.run { context.startActivity(this) }
+            }
         }
     }
 
