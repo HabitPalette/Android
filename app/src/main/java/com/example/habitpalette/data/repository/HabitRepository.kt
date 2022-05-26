@@ -1,9 +1,7 @@
 package com.example.habitpalette.data.repository
 
 import androidx.annotation.WorkerThread
-import androidx.lifecycle.LiveData
 import com.example.habitpalette.data.model.Habit
-import com.example.habitpalette.data.model.HabitHistory
 import com.example.habitpalette.data.persistence.HabitDao
 import kotlinx.coroutines.flow.Flow
 
@@ -22,8 +20,5 @@ class HabitRepository(private val habitDao: HabitDao) {
     }
     suspend fun deleteHabitItem(id:Long){
         habitDao.deleteHabit(id)
-    }
-    suspend fun getHabitHistoryItem(habit_id:Long, id:Long): HabitHistory {
-        return habitDao.getHabitHistoryItem(habit_id, id)
     }
 }
