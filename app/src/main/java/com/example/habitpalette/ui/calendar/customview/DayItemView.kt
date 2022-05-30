@@ -15,12 +15,14 @@ import androidx.annotation.StyleRes
 import androidx.core.content.ContextCompat
 import androidx.core.content.withStyledAttributes
 import com.example.habitpalette.R
+import com.example.habitpalette.data.model.SimpleEvent
 import com.example.habitpalette.utils.CalendarUtil.Companion.dateStringFromFormat
 import com.example.habitpalette.utils.CalendarUtil.Companion.getDateColor
 import com.example.habitpalette.utils.CalendarUtil.Companion.isSameMonth
 import com.example.habitpalette.utils.CalendarUtil.Companion.isToday
 import org.joda.time.DateTime
 
+@SuppressLint("ViewConstructor")
 class DayItemView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
@@ -28,6 +30,8 @@ class DayItemView @JvmOverloads constructor(
     @StyleRes private val defStyleRes: Int = R.style.Calendar_ItemViewStyle,
     private val date: DateTime = DateTime(),
     private val firstDayOfMonth: DateTime = DateTime(),
+    private val eventMap: HashMap<Int, SimpleEvent>,
+    private val dateSelectListener: CalendarView.OnDateSelected
 ) : View(ContextThemeWrapper(context, defStyleRes), attrs, defStyleAttr) {
 
     private val bounds = Rect()
@@ -45,8 +49,9 @@ class DayItemView @JvmOverloads constructor(
                 textSize = dayTextSize
                 textAlign = Paint.Align.CENTER
                 color = getDateColor(date.dayOfWeek)
+
                 if (!isSameMonth(date, firstDayOfMonth)) {
-                    alpha = 50
+                    alpha = 0
                 }
             }
 
@@ -63,10 +68,28 @@ class DayItemView @JvmOverloads constructor(
                     style = Paint.Style.STROKE
                     alpha = 100
                 }
+                else if (eventMap.contains(dateInt)) {
+                    style = Paint.Style.FILL_AND_STROKE
+                    alpha = 30
+                }
                 else{
                     alpha = 0
                 }
             }
+        }
+
+        this.setOnClickListener {
+            val key =(dateStringFromFormat(date = date.toDate(), format = "yyyyMMdd") ?: "0").toInt()
+
+            if(!eventMap.containsKey(key)){
+                eventMap[key] = SimpleEvent(
+                    date = date.toDate(),
+                    title = "Event New",
+                    color = ContextCompat.getColor(context, R.color.light_blue_purple),
+                    progress = 100
+                )
+            }
+            dateSelectListener.onDateSelected(date.toDate(),eventMap[key])
         }
     }
 

@@ -19,17 +19,16 @@ import com.example.habitpalette.R
 import com.example.habitpalette.data.model.Habit
 import com.example.habitpalette.databinding.ActivityCreateHabitBinding
 import com.example.habitpalette.ui.home.MainActivity
+import dagger.hilt.android.AndroidEntryPoint
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
 
-
+@AndroidEntryPoint
 class CreateHabitActivity : AppCompatActivity() {
 
     // 1. View Model 설정
-    private val viewModel: CreateViewModel by viewModels{
-        CreateViewModelFactory((application as HabitPaletteApplication).repository)
-    }
+    private val viewModel: CreateViewModel by viewModels()
     private lateinit var binding: ActivityCreateHabitBinding
 
     @RequiresApi(Build.VERSION_CODES.O)
