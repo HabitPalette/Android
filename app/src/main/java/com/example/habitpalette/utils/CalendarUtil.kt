@@ -1,11 +1,15 @@
 package com.example.habitpalette.utils
 
 import android.graphics.Color
+import android.os.Build
 import androidx.annotation.ColorInt
 import androidx.annotation.IntRange
+import androidx.annotation.RequiresApi
 import org.joda.time.DateTime
 import org.joda.time.DateTimeConstants
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.Period
 import java.util.*
 
 class CalendarUtil {
@@ -29,6 +33,21 @@ class CalendarUtil {
             }
 
             return list
+        }
+
+        @RequiresApi(Build.VERSION_CODES.O)
+        fun getCalendarMonthCount(startDateTime: LocalDate, endDateTime: LocalDate): Int{
+            var cnt=0
+            val period: Period = Period.between(startDateTime, endDateTime)
+
+            if(period.years>0)
+                cnt+=12*period.years
+            if(period.months>0)
+                cnt+=period.months
+            if(period.days>0)
+                cnt+=1
+
+            return cnt
         }
 
         // 해당 calendar의 이전 month의 day 수 return
