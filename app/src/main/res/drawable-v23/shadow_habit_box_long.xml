@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:width="335dp"
+        android:height="124dp"
+        android:alpha="0.4"
+        android:drawable="@drawable/shadow_long"
+        android:gravity="fill"/>
+</layer-list >

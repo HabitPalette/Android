@@ -29,8 +29,11 @@ class CurrentHabitListAdapter(val context: Context):
         @RequiresApi(Build.VERSION_CODES.O)
         fun bind(data: Habit) {
             itemBinding.tvTitle.text = data.title
-            itemBinding.tvPeriod.text = ChronoUnit.DAYS.between(LocalDate.parse(data.start_date.replace(".", ""), DateTimeFormatter.BASIC_ISO_DATE), LocalDate.now()).toString()+"일째"
-            itemBinding.pvCurrentProgress.percent = 50f
+            itemBinding.tvPeriod.text = "습관 "+ChronoUnit.DAYS.between(LocalDate.parse(data.start_date.replace(".", ""), DateTimeFormatter.BASIC_ISO_DATE), LocalDate.now()).toString()+"일째"
+            itemBinding.pvCurrentProgress.percent = ((data.score / 5.0) *100).toFloat()
+            itemBinding.pvCurrentProgress.text = data.score.toString()
+            itemBinding.pvCurrentProgress.fgColorStart = data.color
+            itemBinding.pvCurrentProgress.fgColorEnd = data.color
 
             // 4. 각 habitItem 클릭시 CalendarActivity로 intent
             itemBinding.layoutCurrentItem.setOnClickListener {
